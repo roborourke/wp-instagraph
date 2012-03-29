@@ -40,6 +40,9 @@ class WP_Instagraph extends Instagraph {
 		$img_path_basename = wp_basename( $img_path );
 
 		// extract filter from size request
+		if ( ! is_string( $size ) )
+			return $out;
+
 		$size_bits = explode( ':', $size );
 		$filter = isset( $size_bits[ 1 ] ) ? $size_bits[ 1 ] : false;
 		$size 	= isset( $size_bits[ 0 ] ) ? $size_bits[ 0 ] : false;
@@ -138,7 +141,7 @@ add_filter( 'image_downsize', array( $wp_instagraph, 'downsize' ), 100000000, 3 
  * @return null
  */
 function register_instagraph_filter( $filter, $callback ) {
-	add_filter( "instagraph_filters", create_function( '$filters', 'return array_filter( array_merge( $filters, array( "' . $filter . '" ) ) );' ) );
+	add_filter( "instagraph_filters", create_function( '$filters', 'return array_unique( array_merge( $filters, array( "' . $filter . '" ) ) );' ) );
 	add_action( "instagraph_custom_$filter", $callback, 10, 2 );
 }
 
