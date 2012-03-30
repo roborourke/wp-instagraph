@@ -1,8 +1,11 @@
 # WP Instagraph
 
-This is a prototype WordPress plugin for using imagemagick filters on your wordpress images.
+This is a prototype WordPress plugin for using imagemagick filters on your wordpress
+images. The [original tutorial that accompanied the Instagraph class is on netttuts here](net.tutsplus.com/tutorials/php/create-instagram-filters-with-php/).
 
-There is currently no UI but it is planned.
+The Instagraph class was written by Dejan Marjanovic of http://webarto.com/ (Thanks Dejan!)
+
+There is currently no UI but it is planned to be able to select a default filter.
 
 ## Usage
 
